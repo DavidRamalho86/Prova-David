@@ -1,0 +1,52 @@
+<!--Problema: calculadora de imposto sobre carros na garagem "Carros Velozes."
+
+Você foi contratado pela loja de garagem de carros "Carros Velozes" que deseja implementar uma soluçao em Javascript para calcular o imposto sobre o valor dos carros vendidos,
+ levando em consideração diferentes metodos de pagamentos e suas respectivas taxas de imposto.
+
+Requisitos:
+1- Os valores dos carros serão inseridos pelo usuário.
+2- Existem três métodos de pagamento:
+    *Financiamento= Imposto de 30% sobre o valor do carro.
+    *Consórcio: Imposto de 15% sobre o valor do carro.
+    *Pagamento a vista(dinheiro): Isento de imposto.
+3- A entrada do método de pagamento será pelo usuário como uma opção numéria:
+    *1 para financiamento.
+    *2 para consórcio.
+    *3 para pagamento à vista.
+4 Os valores inseridos pelo usiário de vem ser válidos, e caso contrario, o sistema deve exibir uma mensagem de erro.
+
+Tarefas:
+*implemente uma interface em HTML que permita ao usuário inserir o valor do carro e escolher o método de pagamento.
+Utilize JavaScript para calcular o imposto sobre  o valor do carro, de acordo com o método de pagamento selecionado.
+
+Saida:
+Exiba o resultado no terminal ou interface, mostrando o valor do carro, o método de pagamento escolhido e o total a ser pago pelo cliente.
+
+Exemplo:
+O valor inicial do carro é R$xxx. Já que a forma de pagamento foi XXXXXXX o valor final do carro ficou em R$YYY.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora de Imposto</title>
+</head>
+<body>
+    <center><h1>Calculadora de Imposto sobre Carros</h1></center>
+    <label for="valorCarro">Valor do Carro (R$):</label>
+    <input type="number" id="valorCarro">
+    <label for="metodoPagamento">Método de Pagamento:</label>
+    <select id="metodoPagamento">
+        <option value="1">Financiamento</option>
+        <option value="2">Consórcio</option>
+        <option value="3">Pagamento à vista</option>
+    </select>
+    <br>
+    <button onclick="calcularImposto()">Calcular</button>
+    <p id="resultado"></p>
+    <script src="script.js"></script>
+</body>
+</html>
