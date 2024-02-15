@@ -1,7 +1,8 @@
+
 function calcularImposto() {
-    const valorCarro = parseFloat(document.getElementById("valorCarro").value);
-    const metodoPagamento = parseInt(document.getElementById("metodoPagamento").value);
-    const imposto = 0;
+    const valorCarro = parseFloat(document.getElementById('valorDoCarro').value);
+    const metodoPagamento = parseInt(document.getElementById('formaDePagamento').value);
+    let imposto = 0;
 
     switch (metodoPagamento) {
         case 1:
@@ -10,26 +11,13 @@ function calcularImposto() {
         case 2:
             imposto = valorCarro * 0.15;
             break;
-        case 3:
-            imposto = 0;
-            break;
+        // Caso 3 (Pagamento à Vista) não tem imposto
         default:
-            alert("Método de pagamento inválido!");
-            return;
+            imposto = 0;
     }
 
     const valorFinal = valorCarro + imposto;
+    const metodoEscolhido = (metodoPagamento === 3) ? 'Pagamento à Vista' : (metodoPagamento === 1) ? 'Financiamento' : 'Consórcio';
 
-    document.getElementById("resultado").textContent = `O valor inicial do carro é R$${valorCarro.toFixed(2)}. Já que a forma de pagamento foi ${getMetodoPagamento(metodoPagamento)}, o valor final do carro ficou em R$${valorFinal.toFixed(2)}.`;
-}
-
-function getMetodoPagamento(metodoPagamento) {
-    switch (metodoPagamento) {
-        case 1:
-            return "Financiamento";
-        case 2:
-            return "Consórcio";
-        case 3:
-            return "Pagamento à vista";
-    }
+    document.getElementById('resultado').textContent = `O valor inicial do carro é R$${valorCarro.toFixed(2)}. Já que a forma de pagamento foi ${metodoEscolhido}, o valor final do carro ficou em R$${valorFinal.toFixed(2)}.`;
 }

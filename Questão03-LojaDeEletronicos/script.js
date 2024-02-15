@@ -1,26 +1,31 @@
+
+const comprasRegistradas = [
+    { nome: 'Lucas', valor: 2500 },
+    { nome: 'Leila', valor: 520 },
+    { nome: 'Daniel', valor: 4150 }
+];
+
 function calcularDesconto() {
-    const valorCompra = parseFloat(document.getElementById("valorCompra").value);
-    const desconto = 0;
+    const nomeCliente = document.getElementById('nomeCliente').value;
+    const valorCompra = parseFloat(document.getElementById('valorCompra').value);
+    let desconto = 0;
 
     if (valorCompra >= 3000) {
-        desconto = 0.1;
+        desconto = 10;
     } else if (valorCompra >= 2501 && valorCompra <= 2999) {
-        desconto = 0.05;
+        desconto = 5;
     }
 
-    const valorFinal = valorCompra - (valorCompra * desconto);
-       
-    
-    const compraLucas = 2500.00;
-    const compraLeila =5250.00;
-    const compraDaniel =4150.00;
+    const valorComDesconto = valorCompra * (1 - desconto / 100);
 
-    const totalDaniel =  compraDaniel - (valorCompra * desconto);
-    console.log("Total das compras de Daniel", totalDaniel.toFixed(2));
-    const totalLeila =  compraLeila - (valorCompra * desconto);
-    console.log("Total das compras de Leila", totalLeila.toFixed(2));
-    const totalLucas =  compraLucas - (valorCompra * desconto);
-    console.log("Total das compras de Lucas", totalLucas.toFixed(2));
-    
-    document.getElementById("resultado").textContent = `O valor da compra é R$${valorCompra.toFixed(2)}. O desconto aplicado é de ${desconto * 100}%. O valor final a ser pago é R$${valorFinal.toFixed(2)}.`;
+    const resultadoAnterior = document.getElementById('resultado').textContent;
+    const novoResultado = `${resultadoAnterior}\n${nomeCliente}, gastou R$${valorCompra.toFixed(2)}, teve ${desconto}% de desconto e pagou apenas: R$${valorComDesconto.toFixed(2)}.`;
+
+    document.getElementById('resultado').textContent = novoResultado;
 }
+
+comprasRegistradas.forEach(compra => {
+    document.getElementById('nomeCliente').value = compra.nome;
+    document.getElementById('valorCompra').value = compra.valor;
+    calcularDesconto();
+});

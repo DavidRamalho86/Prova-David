@@ -27,26 +27,29 @@ O valor inicial do carro é R$xxx. Já que a forma de pagamento foi XXXXXXX o va
 -->
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Imposto sobre Carros</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Calculadora de Imposto</title>
 </head>
 <body>
-    <center><h1>Calculadora de Imposto sobre Carros</h1></center>
-    <label for="valorCarro">Valor do Carro (R$):</label>
-    <input type="number" id="valorCarro">
-    <label for="metodoPagamento">Método de Pagamento:</label>
-    <select id="metodoPagamento">
-        <option value="1">Financiamento</option>
-        <option value="2">Consórcio</option>
-        <option value="3">Pagamento à vista</option>
-    </select>
-    <br>
-    <button onclick="calcularImposto()">Calcular</button>
-    <p id="resultado"></p>
+    <div class="container">
+        <h1>Calculadora de Imposto sobre Carros</h1>
+        <label for="valorDoCarro">Valor do Carro (R$):</label>
+        <input type="number" id="valorDoCarro" placeholder="Digite o valor do carro">
+        <label for="formaDePagamento">Método de Pagamento:</label>
+        <select id="formaDePagamento">
+            <option value="1">Financiamento</option>
+            <option value="2">Consórcio</option>
+            <option value="3">Pagamento à Vista</option>
+        </select>
+        <button onclick="calcularImposto()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
+
+
